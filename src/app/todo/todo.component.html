@@ -1,0 +1,18 @@
+<div class="sections">
+  <div class="edit-popup" *ngIf="show">
+    <input type="text" name="" class="edit-item" value="{{value}}" #item>
+    <button class="btn-update" (click)="update(item.value)">Update</button>
+  </div>
+
+  <input type="text" name="" class="item" #item>
+  <button class="btn-add-item" (click)="create(item.value)">Add</button>
+
+  <ul>
+    <li *ngFor="let item of mockData">
+      <span [ngClass]="{'done': item.done}">{{item.title}}</span>
+      <button (click)="remove(item.id)">Delete</button>
+      <button (click)="edit(item.id, item.title)">Edit</button>
+      <button (click)="setTaskComplete(item.id)">Complete</button>
+    </li>
+  </ul>
+</div>
